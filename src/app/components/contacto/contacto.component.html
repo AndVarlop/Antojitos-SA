@@ -1,30 +1,41 @@
-﻿<section id="contacto" class="seccion contacto" #seccion>
+<section id="contacto" class="seccion contacto" #seccion>
   <div class="contenedor">
-    <div class="seccion-head">
-      <div>
-        <p class="seccion-kicker">Contacto comercial</p>
-        <h2 class="seccion-titulo">Hablemos de tu pedido.</h2>
-        <p class="seccion-subtitulo">Pedidos diarios, eventos, oficinas y detalles especiales. Respuesta rÃ¡pida y trato cercano.</p>
-      </div>
-    </div>
+    <h2 class="seccion-titulo">Hablemos de tu Antojo</h2>
+    <p class="seccion-subtitulo">Pedidos, eventos o solo decir hola — estamos a un mensaje.</p>
 
     <div class="contacto-grid">
-      <div class="contacto-card surface">
-        <div class="anim info-bloque"><span class="ico">ðŸ“</span><h4>Zona</h4><p>Entrega local y pedidos coordinados.</p></div>
-        <div class="anim info-bloque"><span class="ico">â˜Ž</span><h4>TelÃ©fono</h4><p>+57 300 000 0000</p></div>
-        <div class="anim info-bloque"><span class="ico">â±</span><h4>Horario</h4><p>Lun a Dom Â· 11:00 a 22:00</p></div>
-        <div class="anim info-bloque"><span class="ico">âœ‰</span><h4>Correo</h4><p>hola&#64;antojitos-sa.com</p></div>
+      <div class="contacto-card">
+        <div class="anim info-bloque">
+          <span class="ico">📍</span>
+          <h4>Visítanos</h4>
+          <p>Av. Antojitos 123, Centro</p>
+        </div>
+        <div class="anim info-bloque">
+          <span class="ico">📞</span>
+          <h4>Llámanos</h4>
+          <p>+52 555 123 4567</p>
+        </div>
+        <div class="anim info-bloque">
+          <span class="ico">⏰</span>
+          <h4>Horario</h4>
+          <p>Lun – Dom · 11:00 a 22:00</p>
+        </div>
+        <div class="anim info-bloque">
+          <span class="ico">💌</span>
+          <h4>Correo</h4>
+          <p>hola&#64;antojitossa.mx</p>
+        </div>
       </div>
 
-      <form class="contacto-form surface anim" (ngSubmit)="enviar()" #f="ngForm">
-        <h3>Solicitar atenciÃ³n</h3>
-        <div class="form-row">
-          <input required name="nombre" [(ngModel)]="modelo.nombre" placeholder="Tu nombre" />
-          <input name="telefono" [(ngModel)]="modelo.telefono" placeholder="TelÃ©fono" />
-        </div>
-        <textarea required name="mensaje" [(ngModel)]="modelo.mensaje" rows="4" placeholder="CuÃ©ntanos cantidad, fecha, zona y sabores."></textarea>
+      <form class="contacto-form anim" (ngSubmit)="enviar()" #f="ngForm">
+        <h3>Envíanos un mensaje</h3>
+        <input required name="nombre" [(ngModel)]="modelo.nombre" placeholder="Tu nombre" />
+        <input name="telefono" [(ngModel)]="modelo.telefono" placeholder="Teléfono" />
+        <textarea required name="mensaje" [(ngModel)]="modelo.mensaje" rows="4" placeholder="¿Qué se te antoja?"></textarea>
         <button type="submit" class="btn-primario" [disabled]="!f.form.valid">Enviar mensaje</button>
-        @if (enviado) { <p class="ok">Gracias. Te contactaremos pronto.</p> }
+        @if (enviado) {
+          <p class="ok">¡Gracias! Te contactaremos pronto. 🍓</p>
+        }
       </form>
     </div>
   </div>
