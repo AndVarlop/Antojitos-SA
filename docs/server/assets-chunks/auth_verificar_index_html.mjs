@@ -17,4 +17,4 @@ export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
 <link rel="modulepreload" href="chunk-VBWT3HVT.js">
 
 
-<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"2":"t6","3":"t7"},"c":{"2":[],"3":[{"i":"t7","r":5,"t":{"7":"t8","8":"t9"},"c":{"7":[],"8":[]}}]}},{"c":{"6":[{"i":"c3874618646","r":1}]}},{"t":{"3":"t1","4":"t2"},"c":{"3":[],"4":[]}},{"c":{"0":[{"i":"c1172860870","r":1}]}}]}</script></body></html>`;
+<script id="ng-state" type="application/json">{"__nghData__":[{"t":{"2":"t3","3":"t4"},"c":{"2":[],"3":[{"i":"t4","r":5,"t":{"7":"t5","8":"t6"},"c":{"7":[],"8":[]}}]}},{"c":{"6":[{"i":"c3874618646","r":1}]}},{"t":{"3":"t1","4":"t2"},"c":{"3":[],"4":[]}},{"c":{"0":[{"i":"c1172860870","r":1}]}}]}</script></body></html>`;
