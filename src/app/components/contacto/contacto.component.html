@@ -4,20 +4,20 @@
       <div>
         <p class="seccion-kicker">Contacto comercial</p>
         <h2 class="seccion-titulo">Hablemos de tu pedido.</h2>
-        <p class="seccion-subtitulo">Pedidos diarios, eventos, oficinas y detalles especiales. Respuesta rÃ¡pida y trato cercano.</p>
+        <p class="seccion-subtitulo">Pedidos diarios, eventos, oficinas y detalles especiales. Respuesta rápida y trato cercano.</p>
       </div>
     </div>
     <div class="contacto-grid">
       <div class="contacto-card surface">
-        <div class="anim info-bloque"><span class="ico">ðŸ“</span><h4>Zona</h4><p>Entrega local y pedidos coordinados.</p></div>
-        <div class="anim info-bloque"><span class="ico">â˜Ž</span><h4>TelÃ©fono</h4><p>+57 300 000 0000</p></div>
-        <div class="anim info-bloque"><span class="ico">â±</span><h4>Horario</h4><p>Lun a Dom Â· 11:00 a 22:00</p></div>
-        <div class="anim info-bloque"><span class="ico">âœ‰</span><h4>Correo</h4><p>hola&#64;antojitos-sa.com</p></div>
+        <div class="anim info-bloque"><span class="ico">📍</span><h4>Zona</h4><p>Entrega local y pedidos coordinados.</p></div>
+        <div class="anim info-bloque"><span class="ico">☎</span><h4>Teléfono</h4><p>+57 300 000 0000</p></div>
+        <div class="anim info-bloque"><span class="ico">⏱</span><h4>Horario</h4><p>Lun a Dom · 11:00 a 22:00</p></div>
+        <div class="anim info-bloque"><span class="ico">✉</span><h4>Correo</h4><p>hola&#64;antojitos-sa.com</p></div>
       </div>
       <form class="contacto-form surface anim" (ngSubmit)="enviar()" #f="ngForm">
-        <h3>Solicitar atenciÃ³n</h3>
-        <div class="form-row"><input required name="nombre" [(ngModel)]="modelo.nombre" placeholder="Tu nombre" /><input name="telefono" [(ngModel)]="modelo.telefono" placeholder="TelÃ©fono" /></div>
-        <textarea required name="mensaje" [(ngModel)]="modelo.mensaje" rows="4" placeholder="CuÃ©ntanos cantidad, fecha, zona y sabores."></textarea>
+        <h3>Solicitar atención</h3>
+        <div class="form-row"><input required name="nombre" [(ngModel)]="modelo.nombre" placeholder="Tu nombre" /><input name="telefono" [(ngModel)]="modelo.telefono" placeholder="Teléfono" /></div>
+        <textarea required name="mensaje" [(ngModel)]="modelo.mensaje" rows="4" placeholder="Cuéntanos cantidad, fecha, zona y sabores."></textarea>
         <button type="submit" class="btn-primario" [disabled]="!f.form.valid">Enviar mensaje</button>
         @if (enviado) { <p class="ok">Gracias. Te contactaremos pronto.</p> }
       </form>

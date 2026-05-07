@@ -2,14 +2,14 @@
   <div class="contenedor">
     <div class="seccion-head catalogo-head">
       <div>
-        <p class="seccion-kicker">CatÃ¡logo conectado</p>
-        <h2 class="seccion-titulo">MenÃº listo para vender.</h2>
-        <p class="seccion-subtitulo">Productos desde Supabase, carrito vivo y experiencia clara para comprar sin fricciÃ³n.</p>
+        <p class="seccion-kicker">Catálogo conectado</p>
+        <h2 class="seccion-titulo">Menú listo para vender.</h2>
+        <p class="seccion-subtitulo">Productos desde Supabase, carrito vivo y experiencia clara para comprar sin fricción.</p>
       </div>
-      @if (carrito.items().length) { <a routerLink="/checkout" class="btn-primario carrito-pill">Ver carrito Â· {{ carrito.items().length }}</a> }
+      @if (carrito.items().length) { <a routerLink="/checkout" class="btn-primario carrito-pill">Ver carrito · {{ carrito.items().length }}</a> }
     </div>
     <div class="catalogo-tools surface">
-      <div class="categorias" aria-label="Filtrar productos por categorÃ­a">
+      <div class="categorias" aria-label="Filtrar productos por categoría">
         @for (cat of categorias(); track cat) { <button type="button" [class.activa]="categoria() === cat" (click)="seleccionarCategoria(cat)">{{ cat }}</button> }
       </div>
       <label class="buscador"><span>Buscar</span><input type="search" [ngModel]="busqueda()" (ngModelChange)="busqueda.set($event)" placeholder="Fresa, chocolate, topping..." /></label>
@@ -26,7 +26,7 @@
           <div class="tarjeta-cuerpo">
             <div><h3 class="tarjeta-nombre">{{ p.nombre }}</h3><p class="tarjeta-desc">{{ p.descripcion || 'Fresas frescas con crema artesanal y toppings de temporada.' }}</p></div>
             <div class="tarjeta-foot">
-              <span [class.stock-bajo]="p.stock > 0 && p.stock <= 3" [class.stock-off]="p.stock === 0">{{ p.stock === 0 ? 'Agotado' : p.stock <= 3 ? 'Ãšltimas unidades' : 'Disponible' }}</span>
+              <span [class.stock-bajo]="p.stock > 0 && p.stock <= 3" [class.stock-off]="p.stock === 0">{{ p.stock === 0 ? 'Agotado' : p.stock <= 3 ? 'Últimas unidades' : 'Disponible' }}</span>
               <button #btnAdd class="btn-primario" [disabled]="p.stock === 0" (click)="agregar(p, btnAdd)">{{ p.stock === 0 ? 'Agotado' : 'Agregar' }}</button>
             </div>
           </div>

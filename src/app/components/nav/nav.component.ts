@@ -11,7 +11,7 @@ import { AuthService } from '../../core/services/auth.service';
   template: `
     <header class="nav">
       <div class="contenedor nav-row">
-        <a class="brand" routerLink="/" aria-label="Antojitos S&A inicio"><img src="/AntojitosS&A.ico" alt="" /><span>Antojitos <em>S&amp;A</em></span></a>
+        <a class="brand" routerLink="/" aria-label="Antojitos S&A inicio"><img src="antojitos-logo.ico" alt="" /><span>Antojitos <em>S&amp;A</em></span></a>
         <nav class="links" aria-label="Navegación principal">
           <a routerLink="/" fragment="experiencia">Experiencia</a><a routerLink="/" fragment="catalogo">Menú</a><a routerLink="/" fragment="contacto">Contacto</a>
           @if (auth.logueado()) { <a routerLink="/cuenta/pedidos">Mis pedidos</a> }
