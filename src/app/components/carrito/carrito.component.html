@@ -1,0 +1,47 @@
+<button class="fab-carrito" (click)="toggle()" aria-label="Abrir carrito">
+  <span class="fab-icono">🛒</span>
+  @if (carrito.cantidad() > 0) {
+    <span class="badge">{{ carrito.cantidad() }}</span>
+  }
+</button>
+
+@if (abierto()) {
+  <div class="overlay" (click)="cerrar()"></div>
+  <aside class="panel-carrito" role="dialog" aria-label="Carrito de compras">
+    <header class="panel-head">
+      <h3>Tu Antojito</h3>
+      <button class="cerrar" (click)="cerrar()" aria-label="Cerrar">✕</button>
+    </header>
+
+    <div class="panel-items">
+      @if (carrito.items().length === 0) {
+        <p class="vacio">Aún no has agregado nada. ¡Endulza tu día! 🍓</p>
+      }
+      @for (it of carrito.items(); track it.producto.id) {
+        <div class="item">
+          <img [src]="it.producto.imagen_url" [alt]="it.producto.nombre" />
+          <div class="item-info">
+            <strong>{{ it.producto.nombre }}</strong>
+            <span class="item-precio">${{ it.producto.precio }}</span>
+            <div class="cant">
+              <button (click)="carrito.setCantidad(it.producto.id, it.cantidad - 1)">−</button>
+              <span>{{ it.cantidad }}</span>
+              <button (click)="carrito.setCantidad(it.producto.id, it.cantidad + 1)">+</button>
+            </div>
+          </div>
+          <button class="quitar" (click)="carrito.quitar(it.producto.id)">🗑</button>
+        </div>
+      }
+    </div>
+
+    <footer class="panel-foot">
+      <div class="total">
+        <span>Total</span>
+        <strong>${{ totalFmt() }}</strong>
+      </div>
+      <button class="btn-primario" [disabled]="carrito.items().length === 0" (click)="irACheckout()">
+        Ir al checkout
+      </button>
+    </footer>
+  </aside>
+}
