@@ -1,0 +1,11 @@
+export default `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting</title>
+    <meta http-equiv="refresh" content="0; url=/Antojitos-SA/auth/login?redirect=%2Fcuenta%2Fperfil">
+  </head>
+  <body>
+    <pre>Redirecting to <a href="/Antojitos-SA/auth/login?redirect=%2Fcuenta%2Fperfil">/Antojitos-SA/auth/login?redirect=%2Fcuenta%2Fperfil</a></pre>
+  </body>
+</html>`;
