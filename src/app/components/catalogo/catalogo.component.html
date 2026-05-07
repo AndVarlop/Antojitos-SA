@@ -1,38 +1,37 @@
-<section id="catalogo" class="seccion catalogo">
+﻿<section id="catalogo" class="seccion catalogo">
   <div class="contenedor">
-    <h2 class="seccion-titulo">Nuestro Menú</h2>
-    <p class="seccion-subtitulo">Fresas frescas, crema artesanal y los toppings que más amas.</p>
-
-    @if (supa.cargando()) {
-      <div class="estado">Cargando antojitos…</div>
-    }
-    @if (supa.error()) {
-      <div class="estado error">Ups: {{ supa.error() }}</div>
-    }
-
+    <div class="seccion-head catalogo-head">
+      <div>
+        <p class="seccion-kicker">CatÃ¡logo conectado</p>
+        <h2 class="seccion-titulo">MenÃº listo para vender.</h2>
+        <p class="seccion-subtitulo">Productos desde Supabase, carrito vivo y experiencia clara para comprar sin fricciÃ³n.</p>
+      </div>
+      @if (carrito.items().length) { <a routerLink="/checkout" class="btn-primario carrito-pill">Ver carrito Â· {{ carrito.items().length }}</a> }
+    </div>
+    <div class="catalogo-tools surface">
+      <div class="categorias" aria-label="Filtrar productos por categorÃ­a">
+        @for (cat of categorias(); track cat) { <button type="button" [class.activa]="categoria() === cat" (click)="seleccionarCategoria(cat)">{{ cat }}</button> }
+      </div>
+      <label class="buscador"><span>Buscar</span><input type="search" [ngModel]="busqueda()" (ngModelChange)="busqueda.set($event)" placeholder="Fresa, chocolate, topping..." /></label>
+    </div>
+    @if (supa.cargando()) { <div class="estado">Cargando antojitos...</div> }
+    @if (supa.error()) { <div class="estado error">Ups: {{ supa.error() }}</div> }
     <div class="grid" #grid>
-      @for (p of supa.productos(); track p.id) {
+      @for (p of productosFiltrados(); track p.id) {
         <article class="tarjeta">
-          <div class="tarjeta-img" [style.backgroundImage]="'url(' + (p.imagen_url || '') + ')'">
-            <span class="tarjeta-precio">${{ p.precio }}</span>
+          <div class="tarjeta-img" [class.sin-imagen]="!p.imagen_url" [style.backgroundImage]="p.imagen_url ? 'url(' + p.imagen_url + ')' : null">
+            <span class="tarjeta-categoria">{{ p.categoria }}</span>
+            <span class="tarjeta-precio">$ {{ p.precio | number:'1.0-0' }}</span>
           </div>
           <div class="tarjeta-cuerpo">
-            <h3 class="tarjeta-nombre">{{ p.nombre }}</h3>
-            <p class="tarjeta-desc">{{ p.descripcion }}</p>
-            <button
-              #btnAdd
-              class="btn-primario"
-              [disabled]="p.stock === 0"
-              (click)="agregar(p, btnAdd)">
-              {{ p.stock === 0 ? 'Agotado' : 'Agregar al carrito' }}
-            </button>
+            <div><h3 class="tarjeta-nombre">{{ p.nombre }}</h3><p class="tarjeta-desc">{{ p.descripcion || 'Fresas frescas con crema artesanal y toppings de temporada.' }}</p></div>
+            <div class="tarjeta-foot">
+              <span [class.stock-bajo]="p.stock > 0 && p.stock <= 3" [class.stock-off]="p.stock === 0">{{ p.stock === 0 ? 'Agotado' : p.stock <= 3 ? 'Ãšltimas unidades' : 'Disponible' }}</span>
+              <button #btnAdd class="btn-primario" [disabled]="p.stock === 0" (click)="agregar(p, btnAdd)">{{ p.stock === 0 ? 'Agotado' : 'Agregar' }}</button>
+            </div>
           </div>
         </article>
-      } @empty {
-        @if (!supa.cargando()) {
-          <div class="estado">Sin productos por ahora.</div>
-        }
-      }
+      } @empty { @if (!supa.cargando()) { <div class="estado vacio">No hay productos con este filtro.</div> } }
     </div>
   </div>
 </section>
