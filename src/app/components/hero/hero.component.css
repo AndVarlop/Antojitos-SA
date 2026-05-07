@@ -1,4 +1,4 @@
-﻿:host { display: block; }
+:host { display: block; }
 .hero { position: relative; overflow: hidden; min-height: 720px; padding: 118px 0 110px; background: var(--gradiente-hero); }
 .hero::before { content: ''; position: absolute; inset: auto 0 0; height: 140px; background: linear-gradient(180deg, rgba(255,250,242,0), var(--crema)); }
 .hero-contenido { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr); gap: 54px; align-items: center; }
@@ -12,10 +12,30 @@
 .hero-badges span { padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,.7); border: 1px solid var(--linea); color: var(--uva-700); font-size: 13px; font-weight: 700; }
 .hero-arte { display: flex; justify-content: center; }
 .producto-frame { position: relative; width: min(460px, 100%); aspect-ratio: 1; border-radius: 26px; padding: 18px; background: rgba(255,255,255,.72); border: 1px solid rgba(255,255,255,.9); box-shadow: var(--sombra-fuerte); transform: rotate(2deg); }
-.producto-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; display: block; }
+.producto-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; display: block; background: var(--malva-100); }
 .pedido-card { position: absolute; left: -24px; bottom: 34px; max-width: 260px; padding: 16px 18px; border-radius: var(--radius); background: rgba(255,255,255,.92); border: 1px solid var(--linea); box-shadow: var(--sombra-suave); transform: rotate(-2deg); }
 .pedido-card span { display: block; color: var(--fresa-600); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
 .pedido-card strong { display: block; color: var(--uva-900); margin-top: 5px; }
 .pedido-card small { display: block; color: var(--texto-suave); margin-top: 4px; }
-@media (max-width: 920px) { .hero { min-height: auto; padding: 96px 0 92px; } .hero-contenido { grid-template-columns: 1fr; } .producto-frame { width: min(380px, 100%); } }
-@media (max-width: 560px) { .hero { padding-top: 84px; } .hero-titulo { font-size: clamp(48px, 17vw, 76px); } .pedido-card { left: 12px; right: 12px; bottom: 16px; max-width: none; } }
+
+@media (max-width: 920px) {
+  .hero { min-height: auto; padding: 80px 0 76px; }
+  .hero-contenido { grid-template-columns: 1fr; gap: 36px; }
+  .producto-frame { width: min(380px, 100%); transform: rotate(0); }
+  .pedido-card { transform: rotate(0); }
+}
+@media (max-width: 760px) {
+  .hero { padding: 56px 0 60px; }
+  .hero-titulo { font-size: clamp(42px, 12vw, 64px); }
+  .hero-sub { font-size: 16px; margin-top: 18px; }
+  .hero-cta { margin-top: 26px; flex-direction: column; }
+  .hero-cta a { width: 100%; }
+  .hero-badges { margin-top: 22px; gap: 8px; }
+  .hero-badges span { font-size: 12px; padding: 6px 10px; }
+  .producto-frame { padding: 12px; border-radius: 22px; }
+  .pedido-card { left: 10px; right: 10px; bottom: 12px; max-width: none; padding: 12px 14px; }
+}
+@media (max-width: 380px) {
+  .hero { padding: 44px 0 48px; }
+  .hero-titulo { font-size: clamp(36px, 13vw, 56px); }
+}

@@ -110,6 +110,16 @@ type Borrador = Partial<Producto>;
     .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .botones { display: flex; gap: 10px; margin-top: 8px; }
     .alerta-error { padding: 8px 12px; background: #ffe5ec; color: #b00020; border-radius: 10px; font-size: 13px; }
+    @media (max-width: 760px) {
+      .head { flex-direction: column; align-items: stretch; gap: 12px; }
+      .head .btn-primario { width: 100%; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+      .modal { padding: 20px; }
+      .row-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 420px) {
+      .grid { grid-template-columns: 1fr; }
+    }
   `]
 })
 export class AdminProductosComponent implements OnInit {

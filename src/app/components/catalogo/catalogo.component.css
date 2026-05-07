@@ -17,7 +17,7 @@
 .tarjeta:hover { transform: translateY(-6px) !important; box-shadow: var(--sombra-fuerte); border-color: rgba(201,54,79,.25); }
 .tarjeta-img { min-height: 220px; background-size: cover; background-position: center; background-color: var(--malva-100); position: relative; }
 .tarjeta-img.sin-imagen { background-image: linear-gradient(135deg, var(--fresa-100), var(--malva-100)); }
-.tarjeta-img.sin-imagen::after { content: 'Antojitos S&A'; position: absolute; inset: 0; display: grid; place-items: center; color: var(--uva-700); font-family: 'Playfair Display', Georgia, serif; font-size: 30px; }
+.tarjeta-img.sin-imagen::after { content: 'Antojitos S\&A'; position: absolute; inset: 0; display: grid; place-items: center; color: var(--uva-700); font-family: 'Playfair Display', Georgia, serif; font-size: 30px; }
 .tarjeta-precio, .tarjeta-categoria { position: absolute; z-index: 1; background: rgba(255,255,255,.92); color: var(--uva-900); font-weight: 800; padding: 7px 11px; border-radius: 999px; font-size: 13px; box-shadow: 0 6px 16px rgba(0,0,0,.08); }
 .tarjeta-precio { top: 12px; right: 12px; }
 .tarjeta-categoria { left: 12px; bottom: 12px; color: var(--fresa-600); }
@@ -30,4 +30,17 @@
 .tarjeta-foot span.stock-off { color: #b00020; }
 .tarjeta-foot .btn-primario { min-height: 40px; padding: 10px 16px; }
 .tarjeta button:disabled { filter: grayscale(.7); opacity: .65; }
-@media (max-width: 780px) { .catalogo-tools { align-items: stretch; flex-direction: column; } .buscador { min-width: 0; width: 100%; border-radius: var(--radius); } .carrito-pill { width: 100%; } }
+@media (max-width: 780px) {
+  .catalogo-tools { align-items: stretch; flex-direction: column; padding: 12px; }
+  .buscador { min-width: 0; width: 100%; border-radius: var(--radius); }
+  .carrito-pill { width: 100%; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .tarjeta-img { min-height: 180px; }
+  .tarjeta-cuerpo { padding: 16px; gap: 14px; }
+  .tarjeta-nombre { font-size: 20px; }
+}
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .tarjeta-foot { flex-direction: column; align-items: stretch; }
+  .tarjeta-foot .btn-primario { width: 100%; }
+}

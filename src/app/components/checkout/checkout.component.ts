@@ -158,8 +158,16 @@ import { FooterComponent } from '../footer/footer.component';
     .muted { color: var(--texto-suave); }
 
     @media (max-width: 880px) {
-      .grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; gap: 18px; }
       .resumen { position: static; }
+    }
+    @media (max-width: 640px) {
+      .checkout { padding: 24px 0 60px; }
+      h1 { font-size: 28px; margin-bottom: 18px; }
+      .bloque { padding: 18px; margin-bottom: 14px; }
+      .resumen { padding: 18px; }
+      .pago-opt, .dir-opt { padding: 12px; }
+      .ico { font-size: 22px; }
     }
   `]
 })

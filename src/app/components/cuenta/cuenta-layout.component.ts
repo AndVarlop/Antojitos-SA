@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { NavComponent } from '../nav/nav.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -22,7 +22,7 @@ import { FooterComponent } from '../footer/footer.component';
         </header>
 
         <div class="cuenta-grid">
-          <nav class="cuenta-nav">
+          <nav class="cuenta-nav" aria-label="Navegación de cuenta">
             <a routerLink="/cuenta/perfil" routerLinkActive="activo">Mi perfil</a>
             <a routerLink="/cuenta/pedidos" routerLinkActive="activo">Mis pedidos</a>
             <a routerLink="/cuenta/credito" routerLinkActive="activo">Mi crédito</a>
@@ -41,40 +41,77 @@ import { FooterComponent } from '../footer/footer.component';
     :host { display: block; }
     .cuenta { padding: 40px 0 80px; min-height: 70vh; }
     .cuenta-head { margin-bottom: 32px; }
-    .cuenta-head h1 { font-size: 36px; color: var(--lila-700); margin-bottom: 4px; }
+    .cuenta-head h1 { font-size: clamp(26px, 4vw, 36px); color: var(--uva-900); margin-bottom: 4px; }
     .cuenta-head p { color: var(--texto-suave); margin: 0; }
-    .aviso { margin-top: 12px; padding: 10px 14px; background: #fff5e0; color: #8a6d00; border-radius: 10px; font-size: 14px; }
-    .aviso a { color: var(--lila-600); font-weight: 600; }
-
-    .cuenta-grid { display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
-    .cuenta-nav { display: flex; flex-direction: column; gap: 6px; }
-    .cuenta-nav a {
-      padding: 12px 16px; border-radius: 12px; color: var(--texto);
-      font-weight: 500; transition: all .2s;
+    .aviso {
+      margin-top: 14px; padding: 12px 16px;
+      background: var(--aviso-bg); color: var(--aviso);
+      border-radius: var(--radius-sm); font-size: 14px;
     }
-    .cuenta-nav a:hover { background: var(--lila-50); color: var(--lila-700); }
-    .cuenta-nav a.activo { background: var(--lila-100); color: var(--lila-700); font-weight: 600; }
-    .salir {
-      margin-top: 14px; padding: 12px 16px; border-radius: 12px;
-      background: transparent; color: var(--texto-suave); text-align: left;
+    .aviso a { color: var(--uva-700); font-weight: 700; }
+
+    .cuenta-grid { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: start; }
+
+    .cuenta-nav {
+      display: flex; flex-direction: column; gap: 4px;
+      position: sticky; top: 90px;
+    }
+    .cuenta-nav a {
+      padding: 12px 16px; border-radius: var(--radius-sm);
+      color: var(--texto); font-weight: 600; font-size: 14px;
       transition: all .2s;
     }
-    .salir:hover { background: #ffe5ec; color: #b00020; }
+    .cuenta-nav a:hover { background: var(--malva-50); color: var(--uva-700); }
+    .cuenta-nav a.activo {
+      background: var(--malva-100); color: var(--uva-900);
+      font-weight: 800;
+      box-shadow: inset 3px 0 0 var(--fresa-600);
+    }
+    .salir {
+      margin-top: 18px; padding: 12px 16px; border-radius: var(--radius-sm);
+      background: transparent; color: var(--texto-suave); text-align: left;
+      font-weight: 600; transition: all .2s;
+    }
+    .salir:hover { background: var(--error-bg); color: var(--error); }
 
     .cuenta-cuerpo {
-      background: white; border-radius: var(--radius);
-      padding: 32px; box-shadow: var(--sombra-suave);
-      border: 1px solid var(--lila-100); min-height: 400px;
+      background: #fff; border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--sombra-suave);
+      border: 1px solid var(--linea);
+      min-height: 400px;
     }
 
     @media (max-width: 768px) {
-      .cuenta-grid { grid-template-columns: 1fr; }
-      .cuenta-nav { flex-direction: row; overflow-x: auto; padding-bottom: 8px; }
-      .cuenta-nav a, .salir { flex-shrink: 0; }
+      .cuenta { padding: 24px 0 60px; }
+      .cuenta-head { margin-bottom: 22px; }
+      .cuenta-grid { grid-template-columns: 1fr; gap: 18px; }
+      .cuenta-nav {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        gap: 6px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .cuenta-nav::-webkit-scrollbar { display: none; }
+      .cuenta-nav a, .salir {
+        flex: 0 0 auto;
+        margin-top: 0;
+        padding: 10px 14px;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .cuenta-nav a.activo { box-shadow: inset 0 -3px 0 var(--fresa-600); }
+      .cuenta-cuerpo { padding: 20px; }
     }
   `]
 })
 export class CuentaLayoutComponent {
   auth = inject(AuthService);
-  async salir() { await this.auth.logout(); }
+  router = inject(Router);
+  async salir() {
+    await this.auth.logout();
+    this.router.navigate(['/']);
+  }
 }

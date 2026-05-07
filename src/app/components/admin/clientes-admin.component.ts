@@ -123,6 +123,14 @@ import { Cliente } from '../../core/models/cliente.model';
     .row input { padding: 10px 12px; border-radius: 10px; border: 1px solid var(--lila-200); font: inherit; }
     .alerta-ok { padding: 10px; background: var(--verde-100); color: var(--verde-500); border-radius: 10px; font-size: 13px; }
     .alerta-error { padding: 10px; background: #ffe5ec; color: #b00020; border-radius: 10px; font-size: 13px; }
+    @media (max-width: 760px) {
+      .head { flex-direction: column; align-items: stretch; }
+      .buscar { min-width: 0; width: 100%; }
+      .tabla { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      .tabla thead, .tabla tbody { display: table; width: 100%; min-width: 720px; }
+      .modal { padding: 20px; }
+      .row { grid-template-columns: 1fr; }
+    }
   `]
 })
 export class AdminClientesComponent implements OnInit {

@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <footer class="foot">
       <div class="contenedor foot-grid">
-        <div><a class="brand" routerLink="/"><img src="antojitos-logo.ico" alt="" /><span>Antojitos <em>S&amp;A</em></span></a><p>Fresas con crema y más delicias. Dulces momentos, hechos con amor.</p></div>
+        <div><a class="brand" routerLink="/"><img src="antojitos-logo.jpeg" alt="" /><span>Antojitos <em>S&amp;A</em></span></a><p>Fresas con crema y más delicias. Dulces momentos, hechos con amor.</p></div>
         <nav aria-label="Enlaces de pie de página"><a routerLink="/" fragment="catalogo">Menú</a><a routerLink="/checkout">Carrito</a><a routerLink="/auth/login">Clientes</a><a routerLink="/admin/dashboard">Admin</a></nav>
         <div class="legal"><strong>© {{ year }} Antojitos S&amp;A</strong><span>Todos los antojos reservados.</span></div>
       </div>

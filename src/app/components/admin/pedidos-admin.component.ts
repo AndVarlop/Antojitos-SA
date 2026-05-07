@@ -136,6 +136,13 @@ import { EstadoPedido, PedidoDetallado } from '../../core/models/cliente.model';
     .info strong { color: var(--lila-700); }
     h4 { margin: 18px 0 10px; color: var(--lila-700); font-size: 14px; }
     .item-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--lila-100); font-size: 14px; }
+    @media (max-width: 760px) {
+      .head { flex-direction: column; align-items: stretch; gap: 12px; }
+      .filtro { width: 100%; }
+      .tabla { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      .tabla thead, .tabla tbody { display: table; width: 100%; min-width: 760px; }
+      .detalle { padding: 20px; }
+    }
   `]
 })
 export class AdminPedidosComponent implements OnInit {
