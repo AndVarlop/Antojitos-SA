@@ -85,7 +85,12 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-body { min-width: 320px; }
+body { min-width: 320px; overflow-x: hidden; }
+
+/* Mejor touch en móvil */
+@media (hover: none) {
+  .btn-primario:hover, .btn-fantasma:hover, .btn-oscuro:hover { transform: none; }
+}
 
 img { max-width: 100%; height: auto; }
 
@@ -225,6 +230,14 @@ input, textarea, select {
 @media (max-width: 380px) {
   .contenedor { width: calc(100% - 20px); }
   .seccion { padding: 44px 0; }
+}
+
+/* Scroll offset para nav sticky (~60px) */
+#fresas,
+#catalogo,
+#contacto,
+#experiencia {
+  scroll-margin-top: 72px;
 }
 
 /* Reduce motion */

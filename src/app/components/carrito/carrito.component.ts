@@ -1,7 +1,6 @@
 import {
   Component,
   PLATFORM_ID,
-  computed,
   effect,
   inject,
   signal
@@ -25,7 +24,6 @@ export class CarritoComponent {
   router = inject(Router);
 
   readonly abierto = signal(false);
-  readonly totalFmt = computed(() => this.carrito.total().toFixed(2));
 
   constructor() {
     effect(async () => {

@@ -69,7 +69,7 @@ import { FooterComponent } from '../footer/footer.component';
 
               @if (metodo() === 'credito') {
                 <div class="credito-info">
-                  Disponible: <strong>$ {{ disponible() | number:'1.2-2' }}</strong>
+                  Disponible: <strong>$ {{ disponible() | number:'1.0-0' }}</strong>
                   @if (carrito.total() > disponible()) {
                     <div class="alerta-error">Tu crédito disponible no cubre este pedido.</div>
                   }
@@ -87,17 +87,23 @@ import { FooterComponent } from '../footer/footer.component';
               @for (it of carrito.items(); track it.producto.id) {
                 <div class="linea">
                   <span>{{ it.cantidad }}× {{ it.producto.nombre }}</span>
-                  <span>$ {{ (it.cantidad * it.producto.precio) | number:'1.2-2' }}</span>
+                  <span>$ {{ (it.cantidad * it.producto.precio) | number:'1.0-0' }}</span>
                 </div>
               }
               <div class="linea total">
                 <span>Total</span>
-                <strong>$ {{ carrito.total() | number:'1.2-2' }}</strong>
+                <strong>$ {{ carrito.total() | number:'1.0-0' }}</strong>
               </div>
 
               @if (error()) { <div class="alerta-error">{{ error() }}</div> }
               @if (exitoId()) {
                 <div class="alerta-ok">¡Pedido confirmado! ID: {{ exitoId()!.slice(0,8) }}</div>
+              }
+              @if (!dirSel() && direcciones().length > 0) {
+                <p class="aviso-bloq">⚠️ Selecciona una dirección de entrega.</p>
+              }
+              @if (metodo() === 'credito' && carrito.total() > disponible()) {
+                <p class="aviso-bloq">⚠️ Crédito insuficiente para este pedido.</p>
               }
 
               <button class="btn-primario" (click)="confirmar()" [disabled]="!puedeConfirmar() || enviando()">
@@ -141,6 +147,7 @@ import { FooterComponent } from '../footer/footer.component';
     .credito-info { margin-top: 14px; padding: 12px 14px; background: var(--lila-50); border-radius: 12px; font-size: 14px; }
     .alerta-error { padding: 10px 14px; background: #ffe5ec; color: #b00020; border-radius: 10px; font-size: 14px; margin-top: 12px; }
     .alerta-ok { padding: 10px 14px; background: var(--verde-100); color: var(--verde-500); border-radius: 10px; font-size: 14px; margin: 12px 0; }
+    .aviso-bloq { padding: 8px 12px; background: #fff8e1; color: #8a6d00; border-radius: 10px; font-size: 13px; margin: 10px 0 0; }
 
     .resumen {
       position: sticky; top: 100px;

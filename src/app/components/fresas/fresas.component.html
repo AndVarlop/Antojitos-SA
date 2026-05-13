@@ -1,0 +1,89 @@
+<section id="fresas" class="fresas-seccion">
+  <div class="fresas-bg" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <div class="contenedor">
+
+    <!-- Header -->
+    <div class="fresas-head">
+      <span class="fresas-kicker">Producto estrella ⭐</span>
+      <h2 class="fresas-titulo">Fresas con crema 🍓</h2>
+      <p class="fresas-sub">
+        El postre que convierte cualquier día en especial. Crema artesanal,
+        fresas frescas y toppings de antojo. El viernes sabe mejor.
+      </p>
+    </div>
+
+    <!-- Estado del día -->
+    <div class="fresas-estado" [class.es-viernes]="hoyEsViernes">
+      @if (hoyEsViernes) {
+        <span class="estado-ico">🍓</span>
+        <div>
+          <strong>¡Hoy es día de fresas con crema!</strong>
+          <p>Pide ahora y recíbelas hoy en tu empresa</p>
+        </div>
+      } @else {
+        <span class="estado-ico">📅</span>
+        <div>
+          <strong>Pedidos abiertos para este viernes</strong>
+          <p>Próxima entrega: {{ proximoViernes }}</p>
+        </div>
+      }
+    </div>
+
+    <!-- Cards -->
+    <div class="fresas-cards">
+      <article class="fresa-card card-clasica">
+        <div class="fresa-badge">Más pedida</div>
+        <div class="fresa-ico">🍓</div>
+        <h3>Clásica</h3>
+        <p>Fresas frescas con crema suave. El clásico que nunca falla.</p>
+        <div class="fresa-precio">Desde $9.000</div>
+        <a [href]="whatsappUrl" class="btn-wa" target="_blank" rel="noopener noreferrer">
+          💬 Pedir por WhatsApp
+        </a>
+      </article>
+
+      <article class="fresa-card card-especial">
+        <div class="fresa-badge badge-premium">Premium ✨</div>
+        <div class="fresa-ico">🍓🍫</div>
+        <h3>Con Oreo + Chocolate</h3>
+        <p>Fresas + crema + granola, chispas de chocolate, dulce de leche o lo que el antojo pida.</p>
+        <div class="fresa-precio">Desde $12.000</div>
+        <a [href]="whatsappUrlToppings" class="btn-wa" target="_blank" rel="noopener noreferrer">
+          💬 Pedir por WhatsApp
+        </a>
+      </article>
+
+      <article class="fresa-card card-info">
+        <div class="fresa-ico">📋</div>
+        <h3>¿Cómo funciona?</h3>
+        <ul>
+          <li>Pides cualquier día de la semana</li>
+          <li>La entrega es todos los viernes</li>
+          <li>Directo en tu empresa</li>
+          <li>Pago contra entrega</li>
+        </ul>
+        <div class="info-tag">Entrega especial todos los viernes 🍓</div>
+      </article>
+    </div>
+
+    <!-- CTA -->
+    <div class="fresas-cta">
+      <a [href]="whatsappUrl" class="btn-fresas-grande" target="_blank" rel="noopener noreferrer">
+        🍓 Hacer mi pedido ahora
+      </a>
+      <p class="fresas-nota">
+        @if (!hoyEsViernes) {
+          Haz tu pedido antes del viernes y lo recibes el {{ proximoViernes }}.
+        } @else {
+          Pedidos hasta agotar. Recíbelas hoy.
+        }
+      </p>
+    </div>
+
+  </div>
+</section>

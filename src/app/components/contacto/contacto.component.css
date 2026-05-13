@@ -13,4 +13,13 @@
 .contacto-form input:focus, .contacto-form textarea:focus { border-color: rgba(201,54,79,.45); box-shadow: 0 0 0 4px rgba(201,54,79,.10); }
 .contacto-form button:disabled { opacity: .55; }
 .ok { color: var(--hoja-700); font-weight: 800; margin: 0; }
-@media (max-width: 880px) { .contacto-grid, .form-row { grid-template-columns: 1fr; } .contacto-card { grid-template-columns: 1fr; } }
+@media (max-width: 880px) {
+  .contacto-grid, .form-row { grid-template-columns: 1fr; }
+  .contacto-card { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .contacto-card { grid-template-columns: 1fr; padding: 18px; }
+  .contacto-form { padding: 18px; }
+  .contacto-form h3 { font-size: 22px; }
+  .info-bloque { padding: 14px; }
+}

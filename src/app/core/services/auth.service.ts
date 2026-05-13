@@ -12,6 +12,7 @@ export class AuthService {
   readonly session = signal<Session | null>(null);
   readonly perfil = signal<Cliente | null>(null);
   readonly cargando = signal(false);
+  readonly inicializado = signal(false);
   readonly logueado = computed(() => !!this.session());
   readonly verificado = computed(() => this.perfil()?.verificado ?? false);
   readonly esAdmin = computed(() => this.perfil()?.is_admin ?? false);
@@ -23,15 +24,18 @@ export class AuthService {
         environment.supabase.anonKey,
         { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } }
       );
-      this.client.auth.getSession().then(({ data }) => {
+      this.client.auth.getSession().then(async ({ data }) => {
         this.session.set(data.session);
-        if (data.session) this.cargarPerfil();
+        if (data.session) await this.cargarPerfil();
+        this.inicializado.set(true);
       });
       this.client.auth.onAuthStateChange((_evt, sess) => {
         this.session.set(sess);
         if (sess) this.cargarPerfil();
         else this.perfil.set(null);
       });
+    } else {
+      this.inicializado.set(true);
     }
   }
 

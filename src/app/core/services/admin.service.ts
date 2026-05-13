@@ -93,4 +93,28 @@ export class AdminService {
     const { error } = await this.auth.db.from('productos').delete().eq('id', id);
     if (error) throw error;
   }
+
+  // Bucket: "productos" (público) en Supabase Storage
+  async subirImagenProducto(file: File): Promise<string> {
+    const ext = file.name.split('.').pop()?.toLowerCase() ?? 'jpg';
+    const nombre = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+
+    const { error } = await this.auth.db.storage
+      .from('productos')
+      .upload(nombre, file, { upsert: false, contentType: file.type });
+
+    if (error) throw error;
+
+    const { data } = this.auth.db.storage
+      .from('productos')
+      .getPublicUrl(nombre);
+
+    return data.publicUrl;
+  }
+
+  async eliminarImagenProducto(url: string): Promise<void> {
+    const nombre = url.split('/productos/').pop();
+    if (!nombre) return;
+    await this.auth.db.storage.from('productos').remove([nombre]);
+  }
 }

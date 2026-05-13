@@ -22,7 +22,7 @@
           <img [src]="it.producto.imagen_url" [alt]="it.producto.nombre" />
           <div class="item-info">
             <strong>{{ it.producto.nombre }}</strong>
-            <span class="item-precio">${{ it.producto.precio }}</span>
+            <span class="item-precio">$ {{ it.producto.precio | number:'1.0-0' }}</span>
             <div class="cant">
               <button (click)="carrito.setCantidad(it.producto.id, it.cantidad - 1)">−</button>
               <span>{{ it.cantidad }}</span>
@@ -37,7 +37,7 @@
     <footer class="panel-foot">
       <div class="total">
         <span>Total</span>
-        <strong>${{ totalFmt() }}</strong>
+        <strong>$ {{ carrito.total() | number:'1.0-0' }}</strong>
       </div>
       <button class="btn-primario" [disabled]="carrito.items().length === 0" (click)="irACheckout()">
         Ir al checkout

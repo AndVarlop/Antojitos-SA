@@ -2,9 +2,9 @@
   <div class="contenedor">
     <div class="seccion-head catalogo-head">
       <div>
-        <p class="seccion-kicker">Catálogo conectado</p>
-        <h2 class="seccion-titulo">Menú listo para vender.</h2>
-        <p class="seccion-subtitulo">Productos desde Supabase, carrito vivo y experiencia clara para comprar sin fricción.</p>
+        <p class="seccion-kicker">Menú del día</p>
+        <h2 class="seccion-titulo">Snacks, mecatos y más 🍫</h2>
+        <p class="seccion-subtitulo">Disponibles todos los días en tu empresa. Elige, agrega al carrito y pide.</p>
       </div>
       @if (carrito.items().length) { <a routerLink="/checkout" class="btn-primario carrito-pill">Ver carrito · {{ carrito.items().length }}</a> }
     </div>
@@ -21,7 +21,7 @@
         <article class="tarjeta">
           <div class="tarjeta-img" [class.sin-imagen]="!p.imagen_url" [style.backgroundImage]="p.imagen_url ? 'url(' + p.imagen_url + ')' : null">
             <span class="tarjeta-categoria">{{ p.categoria }}</span>
-            <span class="tarjeta-precio">$ {{ p.precio | number:'1.0-0' }}</span>
+            <span class="tarjeta-precio">${{ p.precio | number:'1.0-0' }}</span>
           </div>
           <div class="tarjeta-cuerpo">
             <div><h3 class="tarjeta-nombre">{{ p.nombre }}</h3><p class="tarjeta-desc">{{ p.descripcion || 'Fresas frescas con crema artesanal y toppings de temporada.' }}</p></div>

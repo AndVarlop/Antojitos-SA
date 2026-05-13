@@ -18,7 +18,7 @@ import { filter } from 'rxjs/operators';
         </a>
 
         <nav class="links solo-desktop" aria-label="Navegación principal">
-          <a routerLink="/" fragment="experiencia">Experiencia</a>
+          <a routerLink="/" fragment="fresas" class="link-fresas">Fresas 🍓</a>
           <a routerLink="/" fragment="catalogo">Menú</a>
           <a routerLink="/" fragment="contacto">Contacto</a>
           @if (auth.logueado()) { <a routerLink="/cuenta/pedidos">Mis pedidos</a> }
@@ -61,7 +61,7 @@ import { filter } from 'rxjs/operators';
         </header>
 
         <nav class="drawer-links" aria-label="Navegación móvil">
-          <a routerLink="/" fragment="experiencia" (click)="cerrar()">Experiencia</a>
+          <a routerLink="/" fragment="fresas" (click)="cerrar()" class="link-fresas">Fresas con crema 🍓</a>
           <a routerLink="/" fragment="catalogo" (click)="cerrar()">Menú</a>
           <a routerLink="/" fragment="contacto" (click)="cerrar()">Contacto</a>
           @if (auth.logueado()) {
@@ -129,6 +129,8 @@ import { filter } from 'rxjs/operators';
       transition: color .2s;
     }
     .links a:hover { color: var(--fresa-600); }
+    .links .link-fresas { color: var(--fresa-600); }
+    .links .link-fresas:hover { color: var(--fresa-700); }
 
     .acciones { display: flex; gap: 9px; align-items: center; }
     .acciones-desk { display: flex; gap: 9px; align-items: center; }

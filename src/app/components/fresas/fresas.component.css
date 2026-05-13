@@ -1,0 +1,308 @@
+:host { display: block; }
+
+.fresas-seccion {
+  position: relative;
+  overflow: hidden;
+  padding: 92px 0;
+  background: linear-gradient(135deg, #fff0f3 0%, #ffe4ec 45%, #f5e4ff 100%);
+}
+
+/* Blobs de fondo */
+.fresas-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+}
+
+.b1 {
+  width: 520px; height: 520px;
+  background: rgba(226, 74, 99, 0.22);
+  top: -120px; right: -80px;
+  animation: blobmove 9s ease-in-out infinite;
+}
+.b2 {
+  width: 380px; height: 380px;
+  background: rgba(163, 106, 186, 0.18);
+  bottom: -90px; left: -60px;
+  animation: blobmove 11s ease-in-out infinite reverse;
+}
+.b3 {
+  width: 280px; height: 280px;
+  background: rgba(255, 107, 138, 0.14);
+  top: 40%; left: 40%;
+  animation: blobmove 7s ease-in-out infinite 2s;
+}
+
+@keyframes blobmove {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(18px, -18px) scale(1.06); }
+}
+
+.contenedor { position: relative; z-index: 1; }
+
+/* Header */
+.fresas-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.fresas-kicker {
+  display: inline-block;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 54, 79, .25);
+  color: var(--fresa-600);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.fresas-titulo {
+  font-size: clamp(36px, 6vw, 72px);
+  color: var(--uva-900);
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+.fresas-sub {
+  color: var(--texto-suave);
+  font-size: 17px;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Estado */
+.fresas-estado {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255,255,255,.84);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,54,79,.18);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 0 auto 40px;
+  max-width: 560px;
+  box-shadow: var(--sombra-suave);
+  transition: border-color .3s, background .3s;
+}
+
+.fresas-estado.es-viernes {
+  border-color: rgba(201, 54, 79, .5);
+  background: rgba(255, 230, 238, .9);
+}
+
+.estado-ico { font-size: 2.6rem; flex-shrink: 0; }
+
+.fresas-estado strong {
+  display: block;
+  color: var(--uva-900);
+  font-size: 16px;
+}
+
+.fresas-estado p {
+  color: var(--texto-suave);
+  font-size: 14px;
+  margin: 4px 0 0;
+}
+
+/* Cards */
+.fresas-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+  margin-bottom: 48px;
+}
+
+.fresa-card {
+  position: relative;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201,54,79,.14);
+  border-radius: var(--radius);
+  padding: 34px 24px 26px;
+  box-shadow: 0 14px 38px rgba(201,54,79,.10);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.fresa-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 28px 64px rgba(201,54,79,.18);
+}
+
+.card-especial {
+  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(255,228,236,.7));
+  border-color: rgba(201,54,79,.28);
+}
+
+.card-info {
+  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(241,228,255,.6));
+  border-color: rgba(95,52,120,.18);
+}
+
+.fresa-badge {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: linear-gradient(135deg, var(--fresa-500), var(--uva-700));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 999px;
+  box-shadow: 0 5px 14px rgba(201,54,79,.38);
+}
+
+.badge-premium {
+  background: linear-gradient(135deg, #c85dd4, var(--uva-700));
+}
+
+.fresa-ico {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.fresa-card h3 {
+  font-size: 22px;
+  color: var(--uva-900);
+  margin: 0 0 10px;
+}
+
+.fresa-card p {
+  color: var(--texto-suave);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.fresa-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: grid;
+  gap: 9px;
+}
+
+.fresa-card ul li {
+  color: var(--texto-suave);
+  font-size: 14px;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.fresa-card ul li::before {
+  content: '🍓';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+  top: 2px;
+}
+
+.fresa-precio {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--fresa-600);
+  margin-bottom: 18px;
+}
+
+.btn-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2dc97a, #128c7e);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(37,211,102,.28);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.btn-wa:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(37,211,102,.44);
+}
+
+.info-tag {
+  background: rgba(201, 54, 79, .08);
+  border: 1px solid rgba(201, 54, 79, .2);
+  color: var(--fresa-600);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* CTA grande */
+.fresas-cta { text-align: center; }
+
+.btn-fresas-grande {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  min-height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--fresa-500), var(--fresa-700));
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 20px 54px rgba(201, 54, 79, .36);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.btn-fresas-grande:hover {
+  color: #fff;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 30px 72px rgba(201, 54, 79, .52);
+}
+
+.fresas-nota {
+  margin: 16px 0 0;
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .fresas-seccion { padding: 52px 0; }
+  .fresas-titulo { font-size: clamp(30px, 8vw, 48px); }
+  .fresas-sub { font-size: 15px; }
+  .fresas-head { margin-bottom: 24px; }
+  .fresas-estado { flex-direction: column; text-align: center; padding: 16px 18px; margin-bottom: 28px; }
+  .estado-ico { font-size: 2rem; }
+  .fresas-cards { grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+  .fresa-card { padding: 28px 18px 20px; }
+  .btn-fresas-grande { width: 100%; justify-content: center; padding: 14px 24px; font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .fresas-seccion { padding: 44px 0; }
+  .b1, .b2, .b3 { filter: blur(48px); opacity: 0.7; }
+}
+
+@media (max-width: 380px) {
+  .fresas-kicker { font-size: 10px; }
+  .fresas-titulo { font-size: clamp(26px, 8vw, 36px); }
+  .fresa-card { padding: 24px 14px 18px; }
+}
