@@ -22,7 +22,7 @@ export class FresasComponent {
     this.hoyEsViernes = hoy.getDay() === 5;
     this.proximoViernes = this.calcProximoViernes(hoy);
     this.whatsappUrl = this.buildUrl('Hola! Quiero pedir unas fresas con crema para este viernes 🍓');
-    this.whatsappUrlToppings = this.buildUrl('Hola! Quiero pedir unas fresas con crema CON TOPPINGS para este viernes 🍓✨');
+    this.whatsappUrlToppings = this.buildUrl('Hola! Quiero pedir unas fresas con crema CON OREO Y CHOCOLATE para este viernes 🍓✨');
   }
 
   private calcProximoViernes(hoy: Date): string {
