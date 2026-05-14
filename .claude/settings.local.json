@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(claude --version)",
-      "PowerShell(claude *)"
+      "PowerShell(claude *)",
+      "Bash(git pull *)"
     ]
   }
 }
