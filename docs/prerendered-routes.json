@@ -1,23 +1,5 @@
 {
   "routes": {
-    "/Antojitos-SA": {},
-    "/Antojitos-SA/admin": {},
-    "/Antojitos-SA/admin/clientes": {},
-    "/Antojitos-SA/admin/dashboard": {},
-    "/Antojitos-SA/admin/pedidos": {},
-    "/Antojitos-SA/admin/productos": {},
-    "/Antojitos-SA/auth": {},
-    "/Antojitos-SA/auth/login": {},
-    "/Antojitos-SA/auth/recuperar": {},
-    "/Antojitos-SA/auth/registro": {},
-    "/Antojitos-SA/auth/restablecer": {},
-    "/Antojitos-SA/auth/verificado": {},
-    "/Antojitos-SA/auth/verificar": {},
-    "/Antojitos-SA/checkout": {},
-    "/Antojitos-SA/cuenta": {},
-    "/Antojitos-SA/cuenta/credito": {},
-    "/Antojitos-SA/cuenta/direcciones": {},
-    "/Antojitos-SA/cuenta/pedidos": {},
-    "/Antojitos-SA/cuenta/perfil": {}
+    "/": {}
   }
 }
